@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "includeDev": {
+      "type": "boolean",
+      "title": "检查开发依赖（dev-dependencies） / Include dev-dependencies",
+      "default": false
+    },
+    "refreshHours": {
+      "type": "number",
+      "title": "crates.io 数据缓存时长（小时，0 = 每次重新查询） / Cache lifetime in hours (0 = always refetch)",
+      "default": 24
+    }
+  }
+}

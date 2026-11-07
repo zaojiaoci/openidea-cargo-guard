@@ -1,0 +1,28 @@
+id = "zaojiaoci.cargo-guard"
+name = "Cargo Guard"
+version = "0.1.0"
+description = "Flags outdated or yanked crates.io dependencies in Cargo.toml. Reads the manifest and Cargo.lock only — no cargo process — compares direct dependencies against the crates.io index, caches answers offline, and reports on the declaring line."
+authors = ["zaojiaoci"]
+license = "MIT"
+categories = ["tools"]
+engines.openidea = "^1.0"
+wasm = "dist/plugin.wasm"
+activation = ["on-event:file-opened", "on-event:file-saved", "on-command:*"]
+
+[capabilities]
+required = ["project.read", "net:index.crates.io", "events"]
+optional = ["storage"]
+
+[[contributes.commands]]
+id = "check-deps"
+title = "Cargo Guard: 检查依赖更新 / Check Dependencies"
+category = "Cargo Guard"
+
+[[contributes.commands]]
+id = "clear-cache"
+title = "Cargo Guard: 清空 crates.io 缓存 / Clear crates.io Cache"
+category = "Cargo Guard"
+
+[contributes.settings]
+title = "Cargo Guard 依赖守卫 / Cargo Guard"
+schema = "settings.schema.json"
